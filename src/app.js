@@ -4,7 +4,9 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors"); //for resolving cors error
 
-app.use(cors());
+app.use(
+  cors({ credentials: true, origin: true, exposedHeaders: ["set-cookie"] })
+);
 
 dotenv.config({ path: "./config.env" });
 

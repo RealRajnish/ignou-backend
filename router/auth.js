@@ -187,7 +187,7 @@ router.post("/signin", async (req, res) => {
         console.log(token);
         res.cookie("jwtoken", token, {
           httpOnly: true,
-          sameSite: "lax",
+          sameSite: "none",
           secure: true,
           expires: new Date(Date.now() + 258920000),
         });

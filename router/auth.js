@@ -188,7 +188,7 @@ router.post("/signin", async (req, res) => {
         res.cookie("jwtoken", token, {
           httpOnly: true,
           sameSite: "none",
-          domain: "https://rj-cutepets.netlify.app",
+          domain: "rj-cutepets.netlify.app",
           secure: true,
           expires: new Date(Date.now() + 258920000),
         });

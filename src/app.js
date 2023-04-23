@@ -4,6 +4,12 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors"); //for resolving cors error
 
+// // For cross domain cookies following headers are set
+// header("Access-Control-Allow-Origin: http://origin.domain:port");
+// header("Access-Control-Allow-Credentials: true");
+// header("Access-Control-Allow-Methods: GET, POST");
+// header("Access-Control-Allow-Headers: Content-Type, *");
+
 app.use(cors({ origin: true }));
 
 dotenv.config({ path: "./config.env" });

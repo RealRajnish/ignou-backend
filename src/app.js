@@ -4,7 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors"); //for resolving cors error
 
-app.use(cors());
+app.use(cors({ origin: "https://rj-cutepets.netlify.app" }));
 
 dotenv.config({ path: "./config.env" });
 

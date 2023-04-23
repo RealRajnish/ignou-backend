@@ -185,13 +185,14 @@ router.post("/signin", async (req, res) => {
       } else {
         const token = await userLogin.generateAuthToken();
         console.log(token);
-        res.cookie("jwtoken", token, {
-          httpOnly: true,
-          sameSite: "none",
-          domain: ".netlify.app",
-          secure: true,
-          expires: new Date(Date.now() + 258920000),
-        });
+        // res.cookie("jwtoken", token, {
+        //   httpOnly: true,
+        //   sameSite: "none",
+        //   domain: ".netlify.app",
+        //   secure: true,
+        //   expires: new Date(Date.now() + 258920000),
+        // });
+        res.setHeader("Set-Cookie", `jwtoken=${token}`);
         res.json({ message: "user signin successfully.......", code: 3 });
       }
     } else {

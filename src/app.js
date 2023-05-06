@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors"); //for resolving cors error
+const path = require("path");
 
 // // For cross domain cookies following headers are set
 // header("Access-Control-Allow-Origin: http://origin.domain:port");
@@ -21,6 +22,12 @@ app.use(cookieParser());
 
 // we link the router files to make our route easy
 app.use(require("../router/auth"));
+
+app.use(express.static(path.join(__dirname, "../", "build")));
+
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 const PORT = process.env.PORT;
 

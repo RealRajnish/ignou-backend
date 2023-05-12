@@ -23,11 +23,21 @@ app.use(cookieParser());
 // we link the router files to make our route easy
 app.use(require("../router/auth"));
 
-app.use(express.static(path.join(__dirname, "../", "build")));
+// For Production  mode
+if (process.env.SITE === "CLIENT") {
+  app.use(express.static(path.join(__dirname, "../client/", "build")));
 
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+  app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "../client", "index.html"));
+  });
+}
+if (process.env.SITE === "ADMIN") {
+  app.use(express.static(path.join(__dirname, "../admin/", "build")));
+
+  app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "../admin", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT;
 

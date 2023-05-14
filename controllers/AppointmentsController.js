@@ -26,14 +26,11 @@ const viewAppointments = async (req, res) => {
       Date: 1,
       _id: 0,
     });
-    // let n = data.length();
-    // let temp;
-    // for (let i = n - 1; i > -1; n--) {
-    //   // Storing the elements of the input array in reverse order
-    //   temp[n - i - 1] = array[i];
-    // }
-    res.send(data);
-    console.log(typeof data);
+    let temp = [...data];
+    temp.reverse();
+   
+    res.send(temp);
+    // console.log(temp);
   } catch (error) {
     console.log(error);
   }

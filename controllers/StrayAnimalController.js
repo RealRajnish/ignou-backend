@@ -52,4 +52,32 @@ const reqRegisterStray = async (req, res) => {
   }
 };
 
-module.exports = { addStray, reqStrayProducts, reqRegisterStray };
+// get all user requests for registering stray animals
+const getReqRegisterStray = async (req, res) => {
+  const filter = {};
+  try {
+    const data = await ReqRegisterStray.find(filter);
+    res.send(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// delting the request of user to register stray products
+const delReqRegisterStray = async (req, res) => {
+  const uid = req.params.id;
+  try {
+    const data = await ReqRegisterStray.deleteOne({ _id: uid });
+    res.send(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = {
+  addStray,
+  reqStrayProducts,
+  reqRegisterStray,
+  getReqRegisterStray,
+  delReqRegisterStray,
+};

@@ -10,6 +10,8 @@ const {
   addStray,
   reqStrayProducts,
   reqRegisterStray,
+  getReqRegisterStray,
+  delReqRegisterStray,
 } = require("../controllers/StrayAnimalController");
 const {
   registeruser,
@@ -65,5 +67,11 @@ router.post("/addAppointments", addAppointments);
 
 // for getting all the appointments Admin Side
 router.get("/viewAppointments", viewAppointments);
+
+// get all user requests for registering stray animals
+router.get("/getReqRegisterStray", getReqRegisterStray);
+
+// delting the request of user to register stray products
+router.delete("delReqRegisterStray/:id", delReqRegisterStray);
 
 module.exports = router;

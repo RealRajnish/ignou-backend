@@ -59,6 +59,7 @@ const reqSingleProductsId = async (req, res) => {
     const stars = parseFloat(tempStars);
     const temp = data.map((elem) => {
       const {
+        _id,
         id,
         breed,
         age,
@@ -73,6 +74,7 @@ const reqSingleProductsId = async (req, res) => {
         image,
       } = elem;
       const resData = {
+        _id,
         id,
         breed,
         age,
@@ -97,4 +99,23 @@ const reqSingleProductsId = async (req, res) => {
   }
 };
 
-module.exports = { addSingleProduct, reqProducts, reqSingleProductsId };
+// For updating the Product with given id
+const editProduct = async (req, res) => {
+  const uid = req.params.id;
+  try {
+    const data = await SingleProducts.findByIdAndUpdate(uid, req.body, {
+      new: true,
+    });
+    res.send(`${data.id} updated successfully`);
+  } catch (error) {
+    console.log(error);
+    res.json({ msg: "some Error Occured" });
+  }
+};
+
+module.exports = {
+  addSingleProduct,
+  reqProducts,
+  reqSingleProductsId,
+  editProduct,
+};

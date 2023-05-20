@@ -5,6 +5,7 @@ const {
   addSingleProduct,
   reqProducts,
   reqSingleProductsId,
+  editProduct,
 } = require("../controllers/ProductController");
 const {
   addStray,
@@ -72,6 +73,9 @@ router.get("/viewAppointments", viewAppointments);
 router.get("/getReqRegisterStray", getReqRegisterStray);
 
 // delting the request of user to register stray products
-router.delete("delReqRegisterStray/:id", delReqRegisterStray);
+router.delete("/delReqRegisterStray/:id", delReqRegisterStray);
+
+// For updating the Product with given id
+router.put("/editProduct/:id", editProduct);
 
 module.exports = router;

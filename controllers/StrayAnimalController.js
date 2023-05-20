@@ -35,16 +35,18 @@ const reqStrayProducts = async (req, res) => {
 // users requests for adding stray animals
 const reqRegisterStray = async (req, res) => {
   try {
-    const productExist = await ReqRegisterStray.findOne({ id: req.body.id });
-    if (productExist) {
-      return res.status(422).json({ error: "Product id already Exist" });
-    }
+    // const productExist = await ReqRegisterStray.findOne({ id: req.body.id });
+    // if (productExist) {
+    //   return res.status(422).json({ error: "Product id already Exist" });
+    // }
 
     console.log(req.body);
     const data = new ReqRegisterStray(req.body);
     const resp = await data.save();
 
-    res.json({ msg: "Adoption request sent Successfully" }).status(200);
+    res
+      .json({ msg: "Request for adding stray animal sent successfully" })
+      .status(200);
     console.log(resp);
   } catch (error) {
     console.log(error);

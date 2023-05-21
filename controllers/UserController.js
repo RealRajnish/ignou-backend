@@ -43,14 +43,12 @@ const signin = async (req, res) => {
       } else {
         const token = await userLogin.generateAuthToken();
         console.log(token);
-        // res.cookie("jwtoken", token, {
-        //   httpOnly: true,
-        //   sameSite: "none",
-        //   domain: ".netlify.app",
-        //   secure: true,
-        //   expires: new Date(Date.now() + 258920000),
-        // });
-        res.setHeader("Set-Cookie", `jwtoken=${token}`);
+        // res.cookie("jwtoken", token);
+        // res.setHeader("Set-Cookie", `jwtoken=${token}`);
+        res.cookie("jwtoken", token, {
+          expires: new Date(Date.now() + 2.628e9),
+          httpOnly: true,
+        });
         res.json({ message: "user signin successfully.......", code: 3 });
       }
     } else {

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Authenticate = require("../middleware/authenticate");
+const { Authenticate, AuthAdmin } = require("../middleware/authenticate");
 const {
   addSingleProduct,
   reqProducts,
@@ -26,6 +26,11 @@ const {
 } = require("../controllers/AppointmentsController");
 const { reqAdopt } = require("../controllers/AdoptionController");
 const { reqPurchase } = require("../controllers/OrderController");
+const {
+  registerAdmin,
+  adminSignIn,
+  hiii,
+} = require("../controllers/AdminController");
 
 // for adding the stray products in the database
 router.post("/addStray", addStray);
@@ -67,7 +72,7 @@ router.post("/reqRegisterStray", reqRegisterStray);
 router.post("/addAppointments", addAppointments);
 
 // for getting all the appointments Admin Side
-router.get("/viewAppointments", viewAppointments);
+router.get("/viewAppointments", AuthAdmin, viewAppointments);
 
 // get all user requests for registering stray animals
 router.get("/getReqRegisterStray", getReqRegisterStray);
@@ -76,6 +81,15 @@ router.get("/getReqRegisterStray", getReqRegisterStray);
 router.delete("/delReqRegisterStray/:id", delReqRegisterStray);
 
 // For updating the Product with given id
-router.put("/editProduct/:id", editProduct);
+router.put("/editProduct/:id", AuthAdmin, editProduct);
+
+// For registering the Admin
+router.post("/registerAdmin", registerAdmin);
+
+// For Signin of Admin
+router.post("/adminSignIn", adminSignIn);
+
+// for getting the data using cookies from the browser for authentication purpose Admin side
+router.get("/hiii", AuthAdmin, hiii);
 
 module.exports = router;

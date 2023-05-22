@@ -15,4 +15,14 @@ const reqAdopt = async (req, res) => {
   }
 };
 
-module.exports = { reqAdopt };
+// Get all Adoption Request
+const getAllAdoptionReq = async (req, res) => {
+  try {
+    const data = await AdoptDb.find({});
+    res.send(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { reqAdopt, getAllAdoptionReq };

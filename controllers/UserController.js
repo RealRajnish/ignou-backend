@@ -74,4 +74,20 @@ const logout = (req, res) => {
     message: "Logout successfully",
   });
 };
-module.exports = { registeruser, signin, hii, logout };
+
+// Show all users
+const getAllUsers = async (req, res) => {
+  try {
+    const data = await User.find({});
+    const temp = data.map((elem) => {
+      const { name, email, phone, address } = elem;
+      return { name, email, phone, address };
+    });
+
+    res.send(temp);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { registeruser, signin, hii, logout, getAllUsers };

@@ -15,4 +15,24 @@ const reqPurchase = async (req, res) => {
   }
 };
 
-module.exports = { reqPurchase };
+// For Getting all orders by Admin
+const getAllOrders = async (req, res) => {
+  try {
+    const resp = await PurchaseDb.find({});
+    res.send(resp);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getUserOrder = async (req, res) => {
+  const uid = req.params.id;
+  try {
+    const data = await PurchaseDb.find({ "customer_details.email": uid });
+    res.send(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { reqPurchase, getAllOrders, getUserOrder };

@@ -6,6 +6,7 @@ const {
   reqProducts,
   reqSingleProductsId,
   editProduct,
+  deleteProductById,
 } = require("../controllers/ProductController");
 const {
   addStray,
@@ -19,13 +20,21 @@ const {
   signin,
   hii,
   logout,
+  getAllUsers,
 } = require("../controllers/UserController");
 const {
   addAppointments,
   viewAppointments,
 } = require("../controllers/AppointmentsController");
-const { reqAdopt } = require("../controllers/AdoptionController");
-const { reqPurchase } = require("../controllers/OrderController");
+const {
+  reqAdopt,
+  getAllAdoptionReq,
+} = require("../controllers/AdoptionController");
+const {
+  reqPurchase,
+  getAllOrders,
+  getUserOrder,
+} = require("../controllers/OrderController");
 const {
   registerAdmin,
   adminSignIn,
@@ -33,10 +42,10 @@ const {
 } = require("../controllers/AdminController");
 
 // for adding the stray products in the database
-router.post("/addStray", addStray);
+router.post("/addStray", AuthAdmin, addStray);
 
 // for adding the single products in the database
-router.post("/addSignleProduct", addSingleProduct);
+router.post("/addSingleProduct", addSingleProduct);
 
 // getting all the products for the main products page
 router.get("/reqProducts", reqProducts);
@@ -78,7 +87,7 @@ router.get("/viewAppointments", AuthAdmin, viewAppointments);
 router.get("/getReqRegisterStray", getReqRegisterStray);
 
 // delting the request of user to register stray products
-router.delete("/delReqRegisterStray/:id", delReqRegisterStray);
+router.delete("/delReqRegisterStray/:id", AuthAdmin, delReqRegisterStray);
 
 // For updating the Product with given id
 router.put("/editProduct/:id", AuthAdmin, editProduct);
@@ -91,5 +100,20 @@ router.post("/adminSignIn", adminSignIn);
 
 // for getting the data using cookies from the browser for authentication purpose Admin side
 router.get("/hiii", AuthAdmin, hiii);
+
+// For Getting all orders by Admin
+router.get("/getAllOrders", AuthAdmin, getAllOrders);
+
+// Show all Users for admin side
+router.get("/getAllUsers", AuthAdmin, getAllUsers);
+
+// Get all Adoption Requests
+router.get("/getAllAdoptionReq", AuthAdmin, getAllAdoptionReq);
+
+// For deleting Product by id from Admin
+router.delete("/deleteProductById/:id", AuthAdmin, deleteProductById);
+
+// for getting orders of user
+router.get("/getUserOrder/:id", getUserOrder);
 
 module.exports = router;

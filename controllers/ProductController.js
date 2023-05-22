@@ -113,9 +113,22 @@ const editProduct = async (req, res) => {
   }
 };
 
+// For deleting Product by id from Admin
+const deleteProductById = async (req, res) => {
+  const uid = req.params.id;
+  try {
+    const data = await SingleProducts.findOneAndDelete({ id: uid });
+    res.json({ msg: "data deleted successfully", data: data });
+  } catch (error) {
+    console.log(error);
+    res.json({ msg: "some Error Occured" });
+  }
+};
+
 module.exports = {
   addSingleProduct,
   reqProducts,
   reqSingleProductsId,
   editProduct,
+  deleteProductById,
 };

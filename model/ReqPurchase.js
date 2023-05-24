@@ -1,58 +1,65 @@
-const mongooose = require('mongoose');
+const mongooose = require("mongoose");
 
 const reqPurchase = new mongooose.Schema({
-    order_details: {
-        cart: [
-            {
-                id: {
-                    type: String
-                },
-                breed: {
-                    type: String
-                },
-                amount: {
-                    type: String
-                },
-                price: {
-                    type: Number
-                },
-                image: {
-                    type: String
-                }
-            }
-        ],
-        total_price: {
-            type: Number
+  order_details: {
+    cart: [
+      {
+        id: {
+          type: String,
         },
-        shipping_fee: {
-            type: Number,
-            default: 50000
-        }
+        breed: {
+          type: String,
+        },
+        amount: {
+          type: String,
+        },
+        price: {
+          type: Number,
+        },
+        image: {
+          type: String,
+        },
+        category: {
+          type: String,
+        },
+      },
+    ],
+    total_price: {
+      type: Number,
     },
-    customer_details: {
-        name: {
-            type: String,
-            required: true
-        },
-        email: {
-            type: String,
-            required: true
-        },
-        phone: {
-            type: Number,
-            required: true
-        },
-        address: {
-            type: String,
-            required: true
-        }
+    shipping_fee: {
+      type: Number,
+      default: 50000,
     },
-    Date: {
-        type: Date,
-        default: Date.now
-    }
-})
+  },
+  customer_details: {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: Number,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+  },
+  status: {
+    type: String,
+    default: "Booked",
+  },
+  Date: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-const PurchaseDb = mongooose.model('purchase', reqPurchase);
+const PurchaseDb = mongooose.model("purchase", reqPurchase);
 
 module.exports = PurchaseDb;

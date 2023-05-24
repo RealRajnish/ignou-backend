@@ -19,17 +19,22 @@ const reqPurchase = async (req, res) => {
 const getAllOrders = async (req, res) => {
   try {
     const resp = await PurchaseDb.find({});
-    res.send(resp);
+    const temp = [...resp];
+    temp.reverse();
+    res.send(temp);
   } catch (error) {
     console.log(error);
   }
 };
 
+// Get specific user order list
 const getUserOrder = async (req, res) => {
   const uid = req.params.id;
   try {
     const data = await PurchaseDb.find({ "customer_details.email": uid });
-    res.send(data);
+    const temp = [...data];
+    temp.reverse();
+    res.send(temp);
   } catch (error) {
     console.log(error);
   }

@@ -19,7 +19,9 @@ const reqAdopt = async (req, res) => {
 const getAllAdoptionReq = async (req, res) => {
   try {
     const data = await AdoptDb.find({});
-    res.send(data);
+    const temp = [...data];
+    temp.reverse();
+    res.send(temp);
   } catch (error) {
     console.log(error);
   }

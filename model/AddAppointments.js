@@ -37,6 +37,10 @@ const addAppointment = new mongooose.Schema({
       required: true,
     },
   },
+  status: {
+    type: String,
+    default: "Booked",
+  },
   Date: {
     type: Date,
     default: Date.now,

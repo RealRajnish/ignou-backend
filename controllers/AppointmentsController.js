@@ -28,7 +28,7 @@ const viewAppointments = async (req, res) => {
     });
     let temp = [...data];
     temp.reverse();
-   
+
     res.send(temp);
     // console.log(temp);
   } catch (error) {
@@ -36,4 +36,17 @@ const viewAppointments = async (req, res) => {
   }
 };
 
-module.exports = { addAppointments, viewAppointments };
+// Get specific user Appointments list
+const getUserAppointments = async (req, res) => {
+  const uid = req.params.id;
+  try {
+    const data = await AddAppointment.find({ "customer_details.email": uid });
+    const temp = [...data];
+    temp.reverse();
+    res.send(temp);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { addAppointments, viewAppointments, getUserAppointments };

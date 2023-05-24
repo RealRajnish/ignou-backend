@@ -25,6 +25,7 @@ const {
 const {
   addAppointments,
   viewAppointments,
+  getUserAppointments,
 } = require("../controllers/AppointmentsController");
 const {
   reqAdopt,
@@ -45,7 +46,7 @@ const {
 router.post("/addStray", AuthAdmin, addStray);
 
 // for adding the single products in the database
-router.post("/addSingleProduct", addSingleProduct);
+router.post("/addSingleProduct", AuthAdmin, addSingleProduct);
 
 // getting all the products for the main products page
 router.get("/reqProducts", reqProducts);
@@ -115,5 +116,8 @@ router.delete("/deleteProductById/:id", AuthAdmin, deleteProductById);
 
 // for getting orders of user
 router.get("/getUserOrder/:id", getUserOrder);
+
+// for getting appointments of specific users
+router.get("/getUserAppointments/:id", getUserAppointments);
 
 module.exports = router;

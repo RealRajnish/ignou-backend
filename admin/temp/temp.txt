@@ -1,0 +1,2 @@
+dark-bg : #1f1e1e;
+white : #fff;

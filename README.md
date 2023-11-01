@@ -8,9 +8,9 @@ The project is divided in three sections. Here I am using common server for both
 
 ## Live Demo
 
-[Click here for client side](https://rj-cutepets.onrender.com/) 
+[Click here for client side](https://rj-cutepets.onrender.com/) [Alternate link](https://rj-cutepets.cyclic.app/)
 [Click here for admin side](https://cutepets-admin.onrender.com/)
-admin side is password protected please contact for demo password through any of social links,
+admin side is password protected please contact for demo password through any of social links, Here I have used render free-tier services which makes the server sleep on inactivity for a long time. It takes about 15-20 seconds to restart the server for first time. So, kindly wait.
 
 ## socials
 
@@ -37,3 +37,9 @@ admin side is password protected please contact for demo password through any of
 - adoption request : client side
 - booking appointment : client side
 - managing complete product : admin side
+
+## Screenshots
+
+![image](https://github.com/RealRajnish/ignou-project/assets/61611447/1ecd9a14-e029-4614-9e9d-79c93cd10eb8)
+![image](https://github.com/RealRajnish/ignou-project/assets/61611447/0225af6f-328c-47b0-bc8a-8ba23d5cd934)
+

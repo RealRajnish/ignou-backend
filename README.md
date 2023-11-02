@@ -9,8 +9,14 @@ The project is divided in three sections. Here I am using common server for both
 ## Live Demo
 
 [Click here for client side](https://rj-cutepets.onrender.com/) [Alternate link](https://rj-cutepets.cyclic.app/)
+
 [Click here for admin side](https://cutepets-admin.onrender.com/)
-admin side is password protected please contact for demo password through any of social links, Here I have used render free-tier services which makes the server sleep on inactivity for a long time. It takes about 15-20 seconds to restart the server for first time. So, kindly wait.
+
+Demo Credentials for client: 
+- user: abcd@gmail.com
+- password: abcd
+
+admin side is password protected please contact for a demo password through any of the social links, Here I have used render free-tier services which makes the server sleep on inactivity for a long time. It takes about 15-20 seconds to restart the server for the first time. So, kindly wait.
 
 ## socials
 

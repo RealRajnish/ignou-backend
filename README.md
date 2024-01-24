@@ -49,3 +49,6 @@ admin side is password protected please contact for a demo password through any 
 ![image](https://github.com/RealRajnish/ignou-project/assets/61611447/1ecd9a14-e029-4614-9e9d-79c93cd10eb8)
 ![image](https://github.com/RealRajnish/ignou-project/assets/61611447/0225af6f-328c-47b0-bc8a-8ba23d5cd934)
 
+## Tutorial
+this is just for tutorial purpose
+

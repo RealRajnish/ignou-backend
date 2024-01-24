@@ -50,5 +50,5 @@ admin side is password protected please contact for a demo password through any 
 ![image](https://github.com/RealRajnish/ignou-project/assets/61611447/0225af6f-328c-47b0-bc8a-8ba23d5cd934)
 
 ## Tutorial
-giit
+this is just for tutorial purpose
 
